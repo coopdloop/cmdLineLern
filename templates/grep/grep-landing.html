@@ -3,14 +3,23 @@
 {% block body %}
 <h1>Choose a starting point!.</h1>
 <br><br><br>
+<script src="js/terminal.js"></script>
+<link rel="stylesheet" href="static/pretty.css">
+<textarea id="termWindow" name="twindow" rows="8" cols="50">
+Terminal.
+</textarea>
+<br></br>
+<input id="uinput" placeholder=">_">
+<button id="uBtn" onclick="update()">Button</button>
 
-<textarea id="w3review" name="w3review" rows="8" cols="50">
-    Terminal.
-    </textarea>
-<form action="/user_input">
-    <label for="fname">>_</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <input type="submit" value="Submit">
-</form>
+<script>
+    var input = document.getElementById("uinput");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+       event.preventDefault();
+       document.getElementById("uBtn").click();
+      }
+    });
+    </script>
 
 {% endblock %}

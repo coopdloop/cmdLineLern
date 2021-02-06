@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, send_from_directory, make_response
 
 DEVELOPMENT_ENV  = True
 
@@ -21,9 +21,10 @@ app_data = {
 def index():
     return render_template('index.html', app_data=app_data)
 
-@app.route('/user_input', methods = ['POST'])
+@app.route('/user_input', methods = ['GET','POST'])
 def user_input():
-    alert('hi')
+    v = request.args.get('user_input_field')
+    return v
 
 
 @app.route('/about')
@@ -44,6 +45,9 @@ def contact():
 def greplanding():
     return render_template('grep/grep-landing.html', app_data=app_data)
 
+@app.route('/js/<path:path>')
+def send_img(path):
+    return send_from_directory('js', path)
 
 if __name__ == '__main__':
     app.run(debug=DEVELOPMENT_ENV)
