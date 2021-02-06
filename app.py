@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request, send_from_directory, make_response
+import subprocess
 
 DEVELOPMENT_ENV  = True
 
@@ -24,7 +25,12 @@ def index():
 @app.route('/user_input', methods = ['GET','POST'])
 def user_input():
     v = request.args.get('user_input_field')
-    return v
+    cmd = [v]
+    p = subprocess.Popen(cmd, stdout= subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            stdin=subprocess.PIPE)
+    out,err = p.communicate()
+    return out
 
 
 @app.route('/about')
