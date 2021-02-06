@@ -21,6 +21,10 @@ app_data = {
 def index():
     return render_template('index.html', app_data=app_data)
 
+@app.route('/user_input', methods = ['POST'])
+def user_input():
+    alert('hi')
+
 
 @app.route('/about')
 def about():

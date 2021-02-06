@@ -24,7 +24,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-ENVcmdLineLern/
+
 .vscode/
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -36,26 +36,9 @@ ENVcmdLineLern/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
 # Translations
 *.mo
 *.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
 
 # Flask stuff:
 instance/
@@ -90,7 +73,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+ENVcmdLineLern/
 # Spyder project settings
 .spyderproject
 .spyproject
