@@ -73,7 +73,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-ENVcmdLineLern/
+envtemp/
 # Spyder project settings
 .spyderproject
 .spyproject
