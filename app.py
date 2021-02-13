@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request, send_from_directory, make_response
-import subprocess, os
+import subprocess, os, sys
+from subprocess import check_output
 import urllib.parse
 
 DEVELOPMENT_ENV  = True
@@ -32,28 +33,34 @@ def pwd():
 def user_input():
     v = request.args.get('user_input_field')
     cmdDecode = urllib.parse.unquote(v)
+    BI = ('BAD INPUT, try again!')
+
 
     if "cd" in cmdDecode:
-        cmdDecode = cmdDecode.split()
-        newDir = cmdDecode[1]
-        print("Uinput: cd "+newDir)
-        os.chdir(cmdDecode[1])
-        print(os.listdir(os.getcwd()))
-        return os.getcwd()
+        try:
+            cmdDecode = cmdDecode.split()
+            newDir = cmdDecode[1]
+            print("Uinput: cd "+newDir)
+            os.chdir(cmdDecode[1])
+            print(os.listdir(os.getcwd()))
+            return os.getcwd()
+        except:
+            return BI
 
     try:
         cmdDecode = cmdDecode.split()
+        cmd = cmdDecode
+        print(cmd)
+
+        p = check_output(cmd)
+        #p = subprocess.Popen(cmd, stdout= subprocess.PIPE,
+        #                    stderr=subprocess.PIPE,
+        #                    stdin=subprocess.PIPE)
+        #out,err = p.communicate()
+        return p
     except:
-        print('end')
-
-    cmd = cmdDecode
-    print(cmd)
-    p = subprocess.Popen(cmd, stdout= subprocess.PIPE,
-                            stderr=subprocess.PIPE,
-                            stdin=subprocess.PIPE)
-    out,err = p.communicate()
-    return out
-
+        return BI
+    
 
 @app.route('/about')
 def about():

@@ -9,3 +9,34 @@ textarea#termWindow {
     padding-top:3%;
     padding-bottom:3%;
 }
+
+
+.listbox{
+    margin-left:10px;
+    margin-right:10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    display:inline-block;
+    border:1px solid #000;
+    padding:20px;
+    width:900px;
+    height:500px;
+    overflow: scroll;
+}
+
+.lists{
+    margin-left:10px;
+    margin-right:10px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.listsUser{
+    margin-left:10px;
+    margin-right:10px;
+    padding-left:10px;
+    padding-right:10px;
+    color: red
+
+}
