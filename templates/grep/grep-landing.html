@@ -1,27 +1,49 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<h1>Choose a starting point!.</h1>
-<br><br><br>
-<script src="js/terminal.js"></script>
-<link rel="stylesheet" href="static/pretty.css">
 
-<ul class="listbox" style="list-style-type: none;" id="terminalWindow">
-</ul>
+<div class="leftside no-gutters">
+  <h1>Choose a starting point!.</h1>
+  <br><br><br>
+  <script src="js/terminal.js"></script>
+  <link rel="stylesheet" href="static/pretty.css">
+
+  <ul class="listbox" style="list-style-type: none;" id="terminalWindow">
+  </ul>
 
 
-<br></br>
-<input id="uinput" placeholder=">_">
-<button id="uBtn" onclick="update()">Button</button>
+  <br></br>
+  <input id="uinput" placeholder=">_">
+  <button id="uBtn" onclick="update()">Button</button>
 
-<script>
-  var input = document.getElementById("uinput");
-  input.addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      document.getElementById("uBtn").click();
-    }
-  });
-</script>
+  <script>
+    var input = document.getElementById("uinput");
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("uBtn").click();
+      }
+    });
+  </script>
+</div>
+
+
+<div class="rightside no-gutters">
+  <h1>Find the flags below:</h1>
+  <br><br><br>
+  <p class="objective">
+    Please use grep to find the <a style="text-decoration:underline">interesting </a>domain.
+  </p>
+  <p>
+    What is flag 1? :
+  </p>
+  <input id="uinput1" placeholder="ex: 123456">
+  <button id="uBtn1">Button</button>
+  <p class="hint" onclick="alert('.xyz')">
+    click for hint
+  </p>
+
+</div>
+</div>
 
 {% endblock %}

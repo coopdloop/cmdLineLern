@@ -1,29 +1,17 @@
-textarea#termWindow {
-    
-    width:80%;
-    height:100%;
-    margin-left:0%;
-    margin-right:10%;
-    padding-left:3%;
-    padding-right:3%;
-    padding-top:3%;
-    padding-bottom:3%;
-}
-
-
 .listbox{
     margin-left:10px;
     margin-right:10px;
     padding-left:10px;
-    padding-right:10px;
+    padding-right:10%;
     padding-top:10px;
     padding-bottom:10px;
-    display:inline-block;
+    
     border:1px solid #000;
     padding:20px;
-    width:900px;
+    width:85%;
     height:500px;
-    overflow: scroll;
+    overflow-y: scroll;
+    
 }
 
 .lists{
@@ -39,4 +27,36 @@ textarea#termWindow {
     padding-right:10px;
     color: red
 
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+  
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.leftside, .rightside{width: 48%; height: 100%; float: left; overflow-y: scroll; padding-left: 20px;}
+
+.rightside{
+    position: absolute;
+    right: 0px;
+}
+
+.leftside{
+    position: absolute;
+    left: 0px;    
+}
+
+.hint{
+    color: blueviolet;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.objective{
+    font-size: 20px;
 }
