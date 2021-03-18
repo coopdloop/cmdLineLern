@@ -1,9 +1,12 @@
-FROM python3.6
+FROM python
 
 EXPOSE 5000
 
 WORKDIR /app
 
+COPY templates/ /app/templates
+COPY js/ /app/js
+COPY static/ /app/static
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 

@@ -1,18 +1,17 @@
-version: "3.9"
+version: "2"
 services:
+  app:
+    build: ./app
+    links:
+      - db
+    ports:
+      - "5000:5000"
+
   db:
-    container_name: db
-    build:
-      context: ./docker_db
-    restart: always
-#    volumes:
-#      - ./db_data:/var/lib/mysql
+    image: mysql
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
     environment: 
        MYSQL_ROOT_PASSWORD: root
-       MYSQL_DATABASE: stockbot
-       MYSQL_USER: tendies
-       MYSQL_PASSWORD: tendies
     ports: 
-      - 3306:3306
-    # Required for weird characters
-    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+      - 3307:3307
