@@ -13,5 +13,3 @@ services:
       - ./db:/docker-entrypoint-initdb.d/:ro
     environment: 
        MYSQL_ROOT_PASSWORD: root
-    ports: 
-      - 3307:3307

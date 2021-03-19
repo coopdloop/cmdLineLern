@@ -58,8 +58,8 @@ def user_input():
         #                    stdin=subprocess.PIPE)
         #out,err = p.communicate()
         return p
-    except:
-        return BI
+    except Exception as e:
+        return str(e)
     
 
 @app.route('/about')
@@ -85,4 +85,4 @@ def send_img(path):
     return send_from_directory('js', path)
 
 if __name__ == '__main__':
-    app.run(debug=DEVELOPMENT_ENV)
+    app.run(debug=DEVELOPMENT_ENV, host='0.0.0.0')
