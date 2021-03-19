@@ -72,13 +72,52 @@ def service():
     return render_template('service.html', app_data=app_data)
 
 
-@app.route('/start')
+@app.route('/start', methods=['GET','POST'])
 def contact():
-    return render_template('start.html', app_data=app_data)
+    data = {
+        'Subject01': 'Challenge Subject 01',
+        'Subject02': 'Challenge Subject 02',
+        'Subject03':'Challenge Subject 03',
+        'Subject04':'Challenge Subject 04'
+    }
+    return render_template('start.html', app_data=app_data,chal=data)
 
 @app.route('/grep-landing')
-def greplanding():
-    return render_template('grep/grep-landing.html', app_data=app_data)
+def grep():
+    data = {
+        'Question_01_help': 'Grep Challenge 01',
+        'Question_01': 'This is the question!',
+        'Question_01_hint':'hint_here'
+    }
+    return render_template('landing.html', app_data=app_data,ctf_data=data)
+
+
+@app.route('/sed-landing')
+def sed():
+    data = {
+        'Question_01_help': 'Sed Challenge 01',
+        'Question_01': 'This is the question!',
+        'Question_01_hint':'hint_here'
+    }
+    return render_template('landing.html', app_data=app_data,ctf_data=data)
+
+@app.route('/awk-landing')
+def awk():
+    data = {
+        'Question_01_help': 'Awk Challenge 01',
+        'Question_01': 'This is the question!',
+        'Question_01_hint':'hint_here'
+    }
+    return render_template('landing.html', app_data=app_data,ctf_data=data)
+
+@app.route('/uniq-landing')
+def uniq():
+    data = {
+        'Question_01_help': 'Uniq Challenge 01',
+        'Question_01': 'This is the question!',
+        'Question_01_hint':'hint_here'
+    }
+    return render_template('landing.html', app_data=app_data,ctf_data=data)
 
 @app.route('/js/<path:path>')
 def send_img(path):

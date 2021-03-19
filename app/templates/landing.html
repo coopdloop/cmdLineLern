@@ -3,6 +3,9 @@
 {% block body %}
 
 <div class="leftside no-gutters">
+  <form action="/start" method="post">
+    <button name="backButton" type="submit">Back</button>
+  </form>
   <h1>Choose a starting point!.</h1>
   <br><br><br>
   <script src="js/terminal.js"></script>
@@ -32,14 +35,16 @@
   <h1>Find the flags below:</h1>
   <br><br><br>
   <p class="objective">
-    Please use grep to find the <a style="text-decoration:underline">interesting </a>domain.
+    {{ctf_data['Question_01_help']}}
+    <!--Please use grep to find the <a style="text-decoration:underline">interesting </a>domain. -->
   </p>
   <p>
-    What is flag 1? :
+    <!--What is flag 1? :-->
+    {{ctf_data['Question_01']}}
   </p>
   <input id="uinput1" placeholder="ex: 123456">
   <button id="uBtn1">Button</button>
-  <p class="hint" onclick="alert('.xyz')">
+  <p class="hint" onclick="alert('{{ctf_data['Question_01_hint']}}')">
     click for hint
   </p>
 
